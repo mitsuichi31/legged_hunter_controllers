@@ -1,0 +1,57 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 1000  # Hz
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    forward_command_controller:
+      type: forward_command_controller/ForwardCommandController
+
+    joint_trajectory_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+forward_command_controller:
+  ros__parameters:
+    joints:
+      - leg_l1_joint
+      - leg_l2_joint
+      - leg_l3_joint
+      - leg_l4_joint
+      - leg_l5_joint
+      - leg_r1_joint
+      - leg_r2_joint
+      - leg_r3_joint
+      - leg_r4_joint
+      - leg_r5_joint
+    interface_name: effort
+
+joint_trajectory_controller:
+  ros__parameters:
+    joints:
+      - leg_l1_joint
+      - leg_l2_joint
+      - leg_l3_joint
+      - leg_l4_joint
+      - leg_l5_joint
+      - leg_r1_joint
+      - leg_r2_joint
+      - leg_r3_joint
+      - leg_r4_joint
+      - leg_r5_joint
+    command_interfaces:
+      - effort
+    state_interfaces:
+      - position
+      - velocity
+    gains:
+        leg_l1_joint: {p: 100.0, i: 0.0, d: 3.0}
+        leg_l2_joint: {p: 100.0, i: 0.0, d: 3.0}
+        leg_l3_joint: {p: 100.0, i: 0.0, d: 3.0}
+        leg_l4_joint: {p: 100.0, i: 0.0, d: 3.0}
+        leg_l5_joint: {p: 100.0, i: 0.0, d: 3.0}
+        leg_r1_joint: {p: 100.0, i: 0.0, d: 3.0}
+        leg_r2_joint: {p: 100.0, i: 0.0, d: 3.0}
+        leg_r3_joint: {p: 100.0, i: 0.0, d: 3.0}
+        leg_r4_joint: {p: 100.0, i: 0.0, d: 3.0}
+        leg_r5_joint: {p: 100.0, i: 0.0, d: 3.0}
